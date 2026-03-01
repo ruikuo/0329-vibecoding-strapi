@@ -1,7 +1,7 @@
 apiVersion: zeabur.com/v1
 kind: Template
 metadata:
-  name: Strapi CMS
+  name: Strapi CMS Template
 spec:
   description: >-
     Strapi CMS with PostgreSQL, pre-configured for one-click deployment on Zeabur.
@@ -58,7 +58,7 @@ spec:
       spec:
         source:
           source: GITHUB
-          repo: 1139769997
+          repo: 1170098398
           branch: master
         ports:
           - id: web
