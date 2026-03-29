@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "profile_likes",
+  "info": {
+    "singularName": "profile-like",
+    "pluralName": "profile-likes",
+    "displayName": "Profile Like",
+    "description": "Stores the public profile like count"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "count": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0
+    }
+  }
+}

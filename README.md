@@ -70,6 +70,55 @@ Example:
 npm run template:publish -- --repo harrychuang/harryds-vibecoding-strapi --code 7YJAKW
 ```
 
+## Profile API
+
+This template also includes a `Profile` single type for landing/profile data.
+
+- Admin path: `/admin`
+- Public API path: `/api/profile`
+- Like count API paths: `/api/profile-like`, `/api/profile-like/increment`
+
+The public API returns data in this shape:
+
+```json
+{
+  "data": {
+    "backgroundSrc": "https://...",
+    "profile": {
+      "avatarSrc": "https://...",
+      "bio": "Hi I'm Luuuuuuuuucy!",
+      "initialLiked": false,
+      "links": [
+        {
+          "id": "instagram",
+          "label": "Instagram",
+          "href": "https://instagram.com",
+          "icon": "instagram"
+        }
+      ],
+      "name": "Lucy"
+    }
+  }
+}
+```
+
+The like counter API returns data in this shape:
+
+```json
+{
+  "data": {
+    "count": 12
+  }
+}
+```
+
+In Strapi admin, `Profile` images are managed as uploadable media fields:
+
+- `avatar`
+- `background`
+
+The API still returns them as `avatarSrc` and `backgroundSrc` so the frontend can keep using simple image URLs.
+
 ## Environment Variables
 
 See [`.env.example`](.env.example) for a full list of configurable variables. Key variables:
