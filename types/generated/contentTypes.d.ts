@@ -529,6 +529,7 @@ export interface ApiProfileProfile extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    darkBackground: Schema.Attribute.Media<'images'>;
     initialLiked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     links: Schema.Attribute.Component<'shared.social-link', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

@@ -19,7 +19,7 @@ function resolveMediaUrl(
 export default {
   async find(ctx) {
     const profile = await strapi.db.query('api::profile.profile').findOne({
-      populate: ['links', 'avatar', 'background'],
+      populate: ['links', 'avatar', 'background', 'darkBackground'],
     });
 
     if (!profile) {
@@ -32,6 +32,12 @@ export default {
     ctx.body = {
       data: {
         backgroundSrc:
+          resolveMediaUrl(profile.background, ctx.request.origin) ?? defaultBackgroundSrc,
+        darkBackgroundSrc:
+          resolveMediaUrl(profile.darkBackground, ctx.request.origin) ??
+          resolveMediaUrl(profile.background, ctx.request.origin) ??
+          defaultBackgroundSrc,
+        lightBackgroundSrc:
           resolveMediaUrl(profile.background, ctx.request.origin) ?? defaultBackgroundSrc,
         profile: {
           avatarSrc:
